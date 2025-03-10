@@ -74,7 +74,7 @@ export default function Header() {
                             <Box sx={{ display: "flex", alignItems: "center" }}>
                                 <Image src="/SOS.png" alt="Logo" width={200} height={40} />
                             </Box>
-                            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", flex: 1, padding: "0 12px" }}>
+                            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", flex: 1, padding: "0 32px" }}>
                                 {navItems.map((item, index) => (
                                     <Button key={index} color="primary" onClick={() => router.push(`/${item}`)}>
                                         {item}

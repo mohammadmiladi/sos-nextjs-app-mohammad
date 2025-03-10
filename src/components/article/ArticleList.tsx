@@ -1,6 +1,6 @@
 "use client"
 import { FC } from "react";
-import { Box, useMediaQuery } from "@mui/material";
+import { Box } from "@mui/material";
 import ArticleCard from "./ArticleCard";
 
 interface Article {
@@ -17,9 +17,6 @@ interface ArticleListProps {
 }
 
 const ArticleList: FC<ArticleListProps> = ({ articles }) => {
-    const isMobile = useMediaQuery('(max-width:600px)');
-    const flexBasis = isMobile ? "100%" : "calc(25% - 16px)";
-    const maxWidth = isMobile ? "100%" : "calc(25% - 16px)";
 
     return (
         <Box
@@ -27,12 +24,12 @@ const ArticleList: FC<ArticleListProps> = ({ articles }) => {
                 display: "flex",
                 flexWrap: "wrap",
                 gap: 2,
-                justifyContent: "center",
+                justifyContent: "start",
                 marginTop: 3,
             }}
         >
             {articles.map((article, index) => (
-                <Box key={index} sx={{ flexBasis: flexBasis, maxWidth: maxWidth }}>
+                <Box key={index} >
                     <ArticleCard {...article} />
                 </Box>
             ))}

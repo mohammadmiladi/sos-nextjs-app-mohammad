@@ -4,30 +4,34 @@ const articlesData = [
   {
     id: "1",
     image: "/images/articles/arctic-fox.webp",
-    title: "Article 1",
+    title: "راهنمای دریافت معرفی‌نامه",
     duration: 10,
-    description: "This is a detailed article about arctic foxes...",
+    description:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و...",
   },
   {
     id: "2",
     image: "/images/articles/elephants.webp",
-    title: "Article 2",
-    duration: 15,
-    description: "This is a detailed article about elephants...",
+    title: "راهنمای دریافت معرفی‌نامه",
+    duration: 10,
+    description:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و...",
   },
   {
     id: "3",
     image: "/images/articles/honey-bee.webp",
-    title: "Article 3",
-    duration: 20,
-    description: "This is a detailed article about honey bees...",
+    title: "راهنمای دریافت معرفی‌نامه",
+    duration: 10,
+    description:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و...",
   },
   {
     id: "4",
     image: "/images/articles/whale.webp",
-    title: "Article 4",
-    duration: 20,
-    description: "This is a detailed article about whales...",
+    title: "راهنمای دریافت معرفی‌نامه",
+    duration: 10,
+    description:
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و...",
   },
 ];
 
