@@ -19,7 +19,7 @@ const ArticleCard: FC<ArticleCardProps> = ({ image, title, duration, description
     };
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card>
             <CardMedia component="img" height="140" image={image} alt={title} />
             <CardContent>
                 <Typography variant="h5" component="div">
