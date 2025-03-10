@@ -17,8 +17,10 @@ export async function POST(req: Request) {
 }
 
 export async function PUT(req: Request) {
-  const { id, title } = await req.json();
-  todos = todos.map((todo) => (todo.id === id ? { ...todo, title } : todo));
+  const { id, title, completed } = await req.json();
+  todos = todos.map((todo) =>
+    todo.id === id ? { ...todo, title, completed } : todo
+  );
   return NextResponse.json({ success: true });
 }
 
