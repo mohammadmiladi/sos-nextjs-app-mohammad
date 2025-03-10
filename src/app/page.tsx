@@ -1,13 +1,12 @@
-"use client";
-
-import { Button, Container } from "@mui/material";
+import Header from "@/components/Header";
 
 export default function Home() {
   return (
-    <Container>
-      <Button variant="contained" color="primary">
-        Click Me
-      </Button>
-    </Container>
+    <div>
+      <Header />
+      <main>
+        <h1>صفحه اصلی</h1>
+      </main>
+    </div>
   );
 }

@@ -1,8 +1,17 @@
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
-  typography: {
-    fontFamily: "Roboto, Arial, sans-serif",
+  direction: "rtl",
+  palette: {
+    primary: {
+      main: "#ff5722",
+    },
+    background: {
+      default: "#f8f9fa",
+    },
+    text: {
+      primary: "#333",
+    },
   },
 });
 

@@ -1,22 +1,10 @@
-"use client";
-
-import { StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
-import { CssBaseline } from "@mui/material";
-import EmotionRegistry from "@/lib/emotionRegistry";
-import theme from "@/theme/theme";
+import ThemeRegistry from "@/components/ThemeRegistry";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="fa" dir="rtl">
       <body>
-        <StyledEngineProvider injectFirst>
-          <EmotionRegistry>
-            <ThemeProvider theme={theme}>
-              <CssBaseline />
-              {children}
-            </ThemeProvider>
-          </EmotionRegistry>
-        </StyledEngineProvider>
+        <ThemeRegistry>{children}</ThemeRegistry>
       </body>
     </html>
   );
