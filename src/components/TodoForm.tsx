@@ -23,7 +23,7 @@ export default function TodoForm({ todoToEdit, onSave }: TodoFormProps) {
     };
 
     return (
-        <Box component="form" onSubmit={handleSubmit} sx={{ display: "flex", gap: 2, mt: 3 }}>
+        <Box component="form" onSubmit={handleSubmit} sx={{ display: "flex", gap: 2, mt: 3, mb: 3 }}>
             <TextField
                 label="Todo"
                 variant="outlined"

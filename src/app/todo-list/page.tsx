@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Container, Typography, CircularProgress } from "@mui/material";
 import TodoForm from "@/components/TodoForm";
 import TodoCard from "@/components/TodoCard";
-import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+import { DragDropContext, Droppable, Draggable, DropResult } from "@hello-pangea/dnd";
 
 interface Todo {
   id: string;
@@ -17,7 +17,6 @@ export default function TodoPage() {
   const [loading, setLoading] = useState(true);
   const [todoToEdit, setTodoToEdit] = useState<Todo | null>(null);
 
-  // Fetch Todos
   useEffect(() => {
     const fetchTodos = async () => {
       try {
@@ -34,7 +33,6 @@ export default function TodoPage() {
     fetchTodos();
   }, []);
 
-  // Add or Update Todo
   const handleSave = async (title: string, id?: string) => {
     try {
       const res = await fetch("/api/todos", {
@@ -55,7 +53,6 @@ export default function TodoPage() {
     }
   };
 
-  // Delete Todo
   const handleDelete = async (id: string) => {
     try {
       await fetch("/api/todos", {
@@ -70,7 +67,6 @@ export default function TodoPage() {
     }
   };
 
-  // Toggle Completed
   const handleToggleComplete = async (id: string, completed: boolean) => {
     try {
       setTodos((prev) => prev.map((todo) => (todo.id === id ? { ...todo, completed } : todo)));
@@ -85,8 +81,7 @@ export default function TodoPage() {
     }
   };
 
-  // Handle Drag-and-Drop Reordering
-  const handleDragEnd = (result: any) => {
+  const handleDragEnd = (result: DropResult) => {
     if (!result.destination) return;
 
     const newTodos = [...todos];
@@ -109,24 +104,30 @@ export default function TodoPage() {
         <Droppable droppableId="todos">
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
-              {todos.map((todo, index) => (
-                <Draggable key={todo.id} draggableId={todo.id} index={index}>
-                  {(provided) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                    >
-                      <TodoCard
-                        {...todo}
-                        onEdit={() => setTodoToEdit(todo)}
-                        onDelete={() => handleDelete(todo.id)}
-                        onToggleComplete={() => handleToggleComplete(todo.id, !todo.completed)}
-                      />
-                    </div>
-                  )}
-                </Draggable>
-              ))}
+              {todos.length ? (
+                todos.map((todo, index) => (
+                  <Draggable key={todo.id} draggableId={todo.id} index={index}>
+                    {(provided) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        <TodoCard
+                          {...todo}
+                          onEdit={() => setTodoToEdit(todo)}
+                          onDelete={() => handleDelete(todo.id)}
+                          onToggleComplete={() => handleToggleComplete(todo.id, !todo.completed)}
+                        />
+                      </div>
+                    )}
+                  </Draggable>
+                ))
+              ) : (
+                <Typography variant="body1" textAlign="center" mt={2}>
+                  No todos
+                </Typography>
+              )}
               {provided.placeholder}
             </div>
           )}

@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardContent, Typography, IconButton, Box, Switch } from "@mui/material";
 import { Edit, Delete, DragIndicator } from "@mui/icons-material";
 
@@ -10,7 +12,7 @@ interface TodoCardProps {
   onToggleComplete: () => void;
 }
 
-export default function TodoCard({ id, title, completed, onEdit, onDelete, onToggleComplete }: TodoCardProps) {
+export default function TodoCard({ title, completed, onEdit, onDelete, onToggleComplete }: TodoCardProps) {
   return (
     <Card
       sx={{
