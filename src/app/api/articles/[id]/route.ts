@@ -31,6 +31,16 @@ const articlesData = [
   },
 ];
 
-export async function GET() {
-  return NextResponse.json(articlesData);
+export async function GET(
+  req: Request,
+  { params }: { params: { id: string } }
+) {
+  const { id } = params;
+  const article = articlesData.find((art) => art.id === id);
+
+  if (!article) {
+    return NextResponse.json({ error: "Article not found" }, { status: 404 });
+  }
+
+  return NextResponse.json(article);
 }

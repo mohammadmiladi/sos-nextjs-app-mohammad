@@ -4,19 +4,15 @@ import { Card, CardContent, CardMedia, Typography, Button } from "@mui/material"
 import { useRouter } from "next/navigation";
 
 interface ArticleCardProps {
+    id: string;
     image: string;
     title: string;
     duration: number;
     description: string;
-    articleUrl: string;
 }
 
-const ArticleCard: FC<ArticleCardProps> = ({ image, title, duration, description, articleUrl }) => {
+const ArticleCard: FC<ArticleCardProps> = ({ id, image, title, duration, description }) => {
     const router = useRouter();
-
-    const handleClick = () => {
-        router.push(articleUrl);
-    };
 
     return (
         <Card>
@@ -31,7 +27,13 @@ const ArticleCard: FC<ArticleCardProps> = ({ image, title, duration, description
                 <Typography variant="body2" color="text.secondary">
                     {description}
                 </Typography>
-                <Button variant="contained" color="primary" onClick={handleClick}>
+                <Button
+                    size="small"
+                    variant="contained"
+                    color="primary"
+                    sx={{ mt: 2 }}
+                    onClick={() => router.push(`/articles/${id}`)}
+                >
                     Read More
                 </Button>
             </CardContent>
