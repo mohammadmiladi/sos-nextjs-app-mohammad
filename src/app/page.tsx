@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import { Container } from "@mui/material";
 import ArticleList from "@/components/article/ArticleList";
 import { FC } from "react";
@@ -21,7 +20,6 @@ const Home: FC = async () => {
 
   return (
     <div>
-      <Header />
       <Container>
         <h1>مقاله‌ها</h1>
         <ArticleList articles={articles} />
