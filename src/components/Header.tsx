@@ -28,7 +28,13 @@ const cacheRtl = createCache({
     stylisPlugins: [rtlPlugin],
 });
 
-const navItems = ["صفحه اصلی", "todo list", "مراکز خدمات درمانی", "شعبه‌های ما", "سوال‌‌های متداول"];
+const navItems = [
+    { name: "صفحه اصلی", routePath: "/" },
+    { name: "todo list", routePath: "/todo-list" },
+    { name: "مراکز خدمات درمانی", routePath: "/health-centers" },
+    { name: "شعبه‌های ما", routePath: "/branches" },
+    { name: "سوال‌‌های متداول", routePath: "/faq" }
+];
 
 const AppBarStyle = {
     backgroundColor: "white",
@@ -50,7 +56,7 @@ export default function Header() {
         <CacheProvider value={cacheRtl}>
             <CssBaseline />
             <AppBar position="static" sx={AppBarStyle}>
-                <Toolbar sx={{ justifyContent: "space-between" }}>
+                <Toolbar sx={{ justifyContent: "space-between", padding: "0 !important" }}>
                     {isMobile ? (
                         <>
                             <IconButton edge="end" color="inherit" aria-label="menu" onClick={handleDrawerToggle}>
@@ -62,8 +68,8 @@ export default function Header() {
                             <Drawer anchor="right" open={drawerOpen} onClose={handleDrawerToggle}>
                                 <List>
                                     {navItems.map((item, index) => (
-                                        <ListItem key={index} onClick={() => router.push(`/${item}`)}>
-                                            <ListItemText primary={item} />
+                                        <ListItem key={index} onClick={() => router.push(item.routePath)}>
+                                            <ListItemText primary={item.name} />
                                         </ListItem>
                                     ))}
                                 </List>
@@ -74,10 +80,10 @@ export default function Header() {
                             <Box sx={{ display: "flex", alignItems: "center" }}>
                                 <Image src="/SOS.png" alt="Logo" width={200} height={40} />
                             </Box>
-                            <Box sx={{ display: "flex", gap: 2 }}>
+                            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", flex: 1, padding: "0 32px" }}>
                                 {navItems.map((item, index) => (
-                                    <Button key={index} color="primary" onClick={() => router.push(`/${item}`)}>
-                                        {item}
+                                    <Button key={index} color="primary" onClick={() => router.push(item.routePath)}>
+                                        {item.name}
                                     </Button>
                                 ))}
                             </Box>

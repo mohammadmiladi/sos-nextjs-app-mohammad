@@ -1,11 +1,14 @@
 "use client";
-
 import { ReactNode, useState } from "react";
+
 import { ThemeProvider } from "@mui/material/styles";
-import { CacheProvider } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 import useEnhancedEffect from "@mui/material/utils/useEnhancedEffect";
+
+import { CacheProvider } from "@emotion/react";
+
 import createEmotionCache from "@/utils/createEmotionCache";
+import Header from "@/components/Header";
 import theme from "../theme/theme"
 
 import "../styles/main.css";
@@ -25,6 +28,7 @@ export default function ThemeRegistry({ children }: { children: ReactNode }) {
         <CacheProvider value={clientSideEmotionCache}>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
+                <Header />
                 {children}
             </ThemeProvider>
         </CacheProvider>
