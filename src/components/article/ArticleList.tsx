@@ -17,7 +17,6 @@ interface ArticleListProps {
 }
 
 const ArticleList: FC<ArticleListProps> = ({ articles }) => {
-
     return (
         <Box
             sx={{

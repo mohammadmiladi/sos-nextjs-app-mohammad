@@ -39,7 +39,7 @@ const ArticleCard: FC<ArticleCardProps> = ({ id, image, title, duration, descrip
                 </Typography>
                 <Button
                     size="small"
-                    variant="contained"
+                    variant="outlined"
                     color="primary"
                     sx={{ position: "absolute", bottom: "16px", left: "16px" }}
                     onClick={() => router.push(`/articles/${id}`)}
