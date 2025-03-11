@@ -8,6 +8,7 @@ const fetchArticles = async () => {
 
   const res = await fetch(`${baseUrl}/api/articles`, {
     next: { revalidate: 60 },
+    cache: "no-store",
   });
 
   if (!res.ok) throw new Error("Failed to fetch articles");
